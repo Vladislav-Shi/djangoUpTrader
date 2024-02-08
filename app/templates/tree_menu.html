@@ -1,0 +1,8 @@
+<ul>
+    {% for option in options %}
+    <li><a href="{% url 'menu' %}?selected={{ option.id }}"> {{ option.name }}</a></li>
+        {% if option.children %}
+            {% include 'tree_menu.html' with options=option.children %}
+        {% endif %}
+    {% endfor %}
+</ul>
